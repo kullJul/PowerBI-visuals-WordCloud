@@ -1452,7 +1452,8 @@ export class WordCloud implements IVisual {
         const behaviorOptions: IWordCloudBehaviorOptions = {
             wordsSelection: wordsSelection,
             root: this.root,
-            main: this.main
+            main: this.main,
+            host: this.visualHost
         };
 
         this.behavior.bindEvents(behaviorOptions);

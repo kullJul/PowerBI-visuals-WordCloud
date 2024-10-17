@@ -1,8 +1,8 @@
 {
   "visual": {
     "name": "WordCloud",
-    "displayName": "WordCloud 2.3.4.0",
-    "guid": "WordCloud1447959067750",
+    "displayName": "WordCloud 2.3.4.0_DEBUG",
+    "guid": "WordCloud1447959067750_DEBUG",
     "visualClassName": "WordCloud",
     "version": "2.3.4.0",
     "description": "Word Cloud is a visual representation of word frequency and value. Use it to get instant insight into the most important terms in a set.",

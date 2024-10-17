@@ -8,10 +8,13 @@ import ISelectionId = powerbi.visuals.ISelectionId;
 
 type Selection<T1, T2 = T1> = d3Selection<any, T1, any, T2>;
 
+import IVisualHost = powerbi.extensibility.visual.IVisualHost;
+
 export interface IWordCloudBehaviorOptions{
     wordsSelection: Selection<WordCloudDataPoint>;
     root: Selection<any>;
     main: Selection<any>;
+    host: IVisualHost;
 }
 
 export class WordCloudBehavior {
@@ -60,6 +63,19 @@ export class WordCloudBehavior {
 
         this.bindKeyboardEvent(this.behaviorOptions.wordsSelection);
         this.applySelectionStateToData();
+
+        // handle dblclick on the root element of the visual
+        this.bindDblClick(this.behaviorOptions.root);
+    }
+
+    private bindDblClick(elements: Selection<any>){
+        elements.on("dblclick", (event: PointerEvent) => {
+            event.stopPropagation();
+            this.behaviorOptions.host.displayWarningIcon(
+                "Trying to suppress formatting pane",
+                "Did it work?"
+              );
+        });
     }
 
     private bindClickEvent(elements: Selection<any>): void {
